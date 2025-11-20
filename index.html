@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/site-icon-512_home_page.png" type="image/png">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -39,7 +40,21 @@
         <a href="#cta">Contact</a>
       </nav>
     </header>
-    <header class="hero">
+    <header class="hero hero--video">
+      <div class="hero-video" aria-hidden="true">
+        <video
+          class="hero-video__source"
+          autoplay
+          muted
+          loop
+          playsinline
+          aria-hidden="true"
+        >
+          <source src="assets/hero-futuristic-quadrup.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div class="hero-video__overlay"></div>
+      </div>
       <div class="hero-content">
         <p class="eyebrow">Future-ready automation</p>
         <h1>
@@ -58,29 +73,6 @@
           <span>Trusted by engineering, product, and operations teams</span>
           <div class="hero-meta-divider"></div>
           <span>Dynamic pricing, predictable ROI</span>
-        </div>
-      </div>
-      <div class="hero-visual">
-        <div class="hero-grid">
-          <div class="hero-card">
-            <p>Auto-Scale pipelines</p>
-            <small>10+ runbooks automated weekly</small>
-          </div>
-          <div class="hero-card hero-card--accent">
-            <p>Signal intelligence</p>
-            <small>Drives decisions for 48 operational dashes</small>
-          </div>
-          <div class="hero-card">
-            <p>Human-centered ops</p>
-            <small>Innovation powered by balanced governance</small>
-          </div>
-        </div>
-        <div class="hero-highlight">
-          <span class="highlight-label">Pulse</span>
-          <div class="highlight-chart">
-            <span>62%</span>
-            <small>Time saved using autonomous flows</small>
-          </div>
         </div>
       </div>
     </header>
