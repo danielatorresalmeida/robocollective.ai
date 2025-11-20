@@ -14,15 +14,10 @@ const ctaSecondaryAction = document.querySelector("[data-cta-action-secondary]")
 
 const defaultLandingData = {
   hero: {
-    headingPrefix: "RoboCollective.ai orchestrates ",
-    headingSuffix: " workflows so you can scale with confidence.",
+    headingPrefix: "Exclusive Brands & Models",
+    headingSuffix: "Explore Our Most Advanced Robots at RoboCollective.ai",
     lede:
-      "We bridge strategic vision and operational precision through AI-native systems, data synthesis, and human-centered design.",
-    dynamicWords: ["intelligent", "adaptive", "human-centered"],
-    meta: [
-      "Trusted by engineering, product, and operations teams",
-      "Dynamic pricing, predictable ROI",
-    ],
+      "Buy robots for sale from trusted makers worldwide – delivered, professionally set up, and fully supported wherever you are. Explore industrial, service, and educational robots all in one place at RoboCollective.ai",
   },
   services: [
     {
@@ -81,12 +76,12 @@ const defaultLandingData = {
     },
   ],
   cta: {
-    heading: "Embed RoboCollective.ai inside your next launch.",
+    heading: "RoboCollective.ai is your strategic partner in AI-driven operations.",
     body: "Share your most strategic ambition, and we'll co-create a roadmap that combines automation, intelligence, and creative rigor.",
-    primaryLabel: "Plan a discovery call",
-    primaryUrl: "mailto:hello@robocollective.ai",
-    secondaryLabel: "Download capability overview",
-    secondaryUrl: "#",
+    primaryLabel: "Go to Shop",
+    primaryUrl: "robocollective.ai/shop",
+    secondaryLabel: "Contact Us",
+    secondaryUrl: "Form",
   },
 };
 
