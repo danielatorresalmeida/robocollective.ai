@@ -19,23 +19,8 @@ const defaultLandingData = {
     lede:
       "Buy robots for sale from trusted makers worldwide – delivered, professionally set up, and fully supported wherever you are. Explore industrial, service, and educational robots all in one place at RoboCollective.ai",
   },
-  services: [
-    {
-      title: "Intelligent automation",
-      description:
-        "Design, launch, and monitor AI agents that augment your existing platforms without compromising compliance.",
-    },
-    {
-      title: "Data storytelling",
-      description:
-        "Translate complex signals into narratives that keep product, marketing, and ops aligned on next steps.",
-    },
-    {
-      title: "Operational UX",
-      description:
-        "Architect human-centered dashboards, notifications, and playbooks for faster alignment during critical launches.",
-    },
-  ],
+  services:
+  
   process: [
     {
       title: "Immersion",
