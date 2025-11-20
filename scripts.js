@@ -321,8 +321,3 @@ const observer = new IntersectionObserver(
 document.querySelectorAll(".reveal").forEach((section) => {
   observer.observe(section);
 });
-
-const yearTarget = document.getElementById("year");
-if (yearTarget) {
-  yearTarget.textContent = new Date().getFullYear();
-}
