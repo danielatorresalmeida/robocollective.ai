@@ -27,6 +27,7 @@
   --input-border: rgba(255, 255, 255, 0.25);
   --modal-backdrop: rgba(0, 0, 0, 0.65);
   --modal-shadow: rgba(0, 0, 0, 0.8);
+  --cta-gradient: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
   color-scheme: dark;
 }
 
@@ -59,6 +60,7 @@
   --input-border: rgba(15, 23, 42, 0.25);
   --modal-backdrop: rgba(0, 0, 0, 0.15);
   --modal-shadow: rgba(0, 0, 0, 0.15);
+  --cta-gradient: linear-gradient(145deg, rgba(15, 23, 42, 0.05), rgba(15, 23, 42, 0.01));
   color-scheme: light;
 }
 
@@ -152,8 +154,8 @@ body {
 
 .theme-toggle:hover,
 .theme-toggle:focus-visible {
-  border-color: rgba(255, 255, 255, 0.35);
-  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--dropdown-border);
+  background: var(--soft);
 }
 
 .nav-caret {
@@ -319,7 +321,7 @@ body {
   background: var(--contact-hero-background);
   border-radius: 30px;
   padding: 3rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--panel-border);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 2rem;
@@ -337,10 +339,10 @@ body {
 }
 
 .contact-hero__stats div {
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--panel-background);
   border-radius: 16px;
   padding: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--panel-border);
 }
 
 .contact-hero__stats strong {
@@ -485,7 +487,7 @@ body {
   background: var(--modal-background);
   border-radius: 20px;
   padding: 2rem;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid var(--panel-border);
   box-shadow: 0 25px 70px var(--modal-shadow);
   max-width: 420px;
   width: min(90vw, 420px);
@@ -498,7 +500,7 @@ body {
   right: 0.5rem;
   border: none;
   background: transparent;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-muted);
   font-size: 1.5rem;
   cursor: pointer;
 }
@@ -536,7 +538,7 @@ html.contact-modal-open {
   margin: 3rem 0;
   padding: 2.5rem;
   border-radius: 28px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--panel-border);
   background: var(--meet-caipo-background);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -550,7 +552,7 @@ html.contact-modal-open {
 }
 
 .meet-caipo__frame p {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-muted-strong);
   max-width: 480px;
   line-height: 1.5;
 }
@@ -568,7 +570,7 @@ html.contact-modal-open {
   padding: 2rem 1rem;
   border-radius: 28px;
   background: var(--highlights-background);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--panel-border);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
@@ -584,12 +586,13 @@ html.contact-modal-open {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  border: 1px solid var(--border);
   align-items: center;
   justify-content: center;
   margin-bottom: 0.75rem;
   font-size: 1.3rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--secondary);
+  background: var(--surface);
 }
 
 .highlights h3 {
@@ -598,7 +601,7 @@ html.contact-modal-open {
 
 .highlights p {
   margin: 0;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-muted);
   font-size: 0.95rem;
 }
 
@@ -688,7 +691,7 @@ html.contact-modal-open {
 
 .page-article ul {
   padding-left: 1.25rem;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--text-muted);
 }
 
 .page-article li {
@@ -709,7 +712,7 @@ html.contact-modal-open {
 
 .section-heading p {
   margin: 0;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-muted);
 }
 
 .grid {
@@ -723,7 +726,7 @@ html.contact-modal-open {
   padding: 1.25rem;
   border-radius: 18px;
   border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--surface);
 }
 
 .grid-card h3 {
@@ -742,13 +745,13 @@ html.contact-modal-open {
   padding: 1.5rem;
   border-radius: 16px;
   border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.01);
+  background: var(--surface);
   min-height: 160px;
 }
 
 .step-index {
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--text-muted);
   letter-spacing: 0.3em;
 }
 
@@ -763,7 +766,7 @@ html.contact-modal-open {
   padding: 1.5rem;
   border-radius: 18px;
   border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--surface);
   min-height: 160px;
 }
 
@@ -780,7 +783,7 @@ html.contact-modal-open {
 .cta-card {
   padding: 2.5rem;
   border-radius: 28px;
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+  background: var(--cta-gradient);
   border: 1px solid var(--border);
 }
 
@@ -790,7 +793,7 @@ html.contact-modal-open {
 }
 
 .cta-card p {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-muted);
   margin-bottom: 1.25rem;
 }
 
@@ -806,14 +809,14 @@ html.contact-modal-open {
   border-top: 1px solid var(--border);
   text-align: center;
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--text-muted);
 }
 
 .eyebrow {
   letter-spacing: 0.46em;
   text-transform: uppercase;
   font-size: 0.7rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--text-muted);
   margin-bottom: 0.6rem;
 }
 

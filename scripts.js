@@ -301,6 +301,50 @@ const fetchLandingData = async () => {
 
 fetchLandingData();
 
+const themeToggleButtons = document.querySelectorAll("[data-theme-toggle]");
+const THEME_STORAGE_KEY = "robocollective-theme";
+
+const readStoredTheme = () => {
+  try {
+    return localStorage.getItem(THEME_STORAGE_KEY);
+  } catch {
+    return null;
+  }
+};
+
+const getInitialTheme = () => {
+  const stored = readStoredTheme();
+  if (stored === "light" || stored === "dark") {
+    return stored;
+  }
+  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+};
+
+const applyColorTheme = (theme) => {
+  const useLight = theme === "light";
+  document.documentElement.classList.toggle("theme-light", useLight);
+  themeToggleButtons.forEach((button) => {
+    button.setAttribute("aria-pressed", useLight);
+  });
+  try {
+    localStorage.setItem(THEME_STORAGE_KEY, theme);
+  } catch {
+    // Ignore storage failures (e.g., private browsing)
+  }
+};
+
+let activeTheme = getInitialTheme();
+applyColorTheme(activeTheme);
+
+if (themeToggleButtons.length) {
+  themeToggleButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      activeTheme = activeTheme === "light" ? "dark" : "light";
+      applyColorTheme(activeTheme);
+    });
+  });
+}
+
 const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
