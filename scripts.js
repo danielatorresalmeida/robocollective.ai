@@ -303,30 +303,24 @@ fetchLandingData();
 
 const themeToggleButtons = document.querySelectorAll("[data-theme-toggle]");
 const THEME_STORAGE_KEY = "robocollective-theme";
-const themeImageDirectories = {
+const themeAssetDirectories = {
   dark: "assets/dark",
   light: "assets/light",
 };
-const themeImageElements = document.querySelectorAll("[data-theme-img]");
+const themeAssetGroups = [
+  {
+    attribute: "src",
+    datasetKey: "themeImg",
+    elements: document.querySelectorAll("[data-theme-img]"),
+  },
+  {
+    attribute: "src",
+    datasetKey: "themeSrc",
+    elements: document.querySelectorAll("[data-theme-src]"),
+  },
+];
 const themeHrefElements = document.querySelectorAll("[data-theme-href]");
-
-const syncThemeMedia = (theme) => {
-  const directory = themeImageDirectories[theme] || themeImageDirectories.dark;
-  themeImageElements.forEach((image) => {
-    const baseFile = image.dataset.themeImg;
-    if (!baseFile) {
-      return;
-    }
-    image.src = `${directory}/${baseFile}`;
-  });
-  themeHrefElements.forEach((link) => {
-    const baseFile = link.dataset.themeHref;
-    if (!baseFile) {
-      return;
-    }
-    link.href = `${directory}/${baseFile}`;
-  });
-};
+const heroVideoEl = document.querySelector(".hero-video__source");
 
 const readStoredTheme = () => {
   try {
@@ -342,6 +336,29 @@ const getInitialTheme = () => {
     return stored;
   }
   return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+};
+
+const syncThemeMedia = (theme) => {
+  const directory = themeAssetDirectories[theme] || themeAssetDirectories.dark;
+  themeAssetGroups.forEach(({ attribute, datasetKey, elements }) => {
+    elements.forEach((element) => {
+      const baseFile = element.dataset[datasetKey];
+      if (!baseFile) {
+        return;
+      }
+      element.setAttribute(attribute, `${directory}/${baseFile}`);
+    });
+  });
+  themeHrefElements.forEach((link) => {
+    const baseFile = link.dataset.themeHref;
+    if (!baseFile) {
+      return;
+    }
+    link.setAttribute("href", `${directory}/${baseFile}`);
+  });
+  if (heroVideoEl) {
+    heroVideoEl.load();
+  }
 };
 
 const applyColorTheme = (theme) => {
