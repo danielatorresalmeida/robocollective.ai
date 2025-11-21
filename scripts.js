@@ -60,7 +60,6 @@ const defaultLandingData = {
     secondaryLabel: "Contact Us",
     secondaryUrl: "Form",
   },
-};
 
 let heroPhrases = [];
 let heroPhraseIndex = 0;
@@ -374,7 +373,7 @@ const renderContactPopup = () => {
 renderContactPopup();
 
 const THEME_KEY = "robocollective-theme";
-const themeToggleButton = document.querySelector("[data-theme-toggle]");
+const themeToggleButtons = document.querySelectorAll("[data-theme-toggle]");
 const getPreferredTheme = () => {
   const stored = window.localStorage.getItem(THEME_KEY);
   if (stored === "light" || stored === "dark") {
@@ -389,17 +388,22 @@ const getPreferredTheme = () => {
 const applyTheme = (theme) => {
   const isLight = theme === "light";
   document.documentElement.classList.toggle("theme-light", isLight);
-  if (themeToggleButton) {
-    themeToggleButton.setAttribute("aria-pressed", String(isLight));
-    themeToggleButton.querySelector("span").textContent = isLight ? "☀️" : "🌙";
-  }
+  themeToggleButtons.forEach((button) => {
+    button.setAttribute("aria-pressed", String(isLight));
+    const icon = button.querySelector("span");
+    if (icon) {
+      icon.textContent = isLight ? "☀️" : "🌙";
+    }
+  });
   window.localStorage.setItem(THEME_KEY, theme);
 };
 
 let currentTheme = getPreferredTheme();
 applyTheme(currentTheme);
 
-themeToggleButton?.addEventListener("click", () => {
-  currentTheme = currentTheme === "dark" ? "light" : "dark";
-  applyTheme(currentTheme);
+themeToggleButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    currentTheme = currentTheme === "dark" ? "light" : "dark";
+    applyTheme(currentTheme);
+  });
 });
