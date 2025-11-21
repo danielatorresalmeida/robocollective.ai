@@ -78,8 +78,8 @@ const defaultLandingData = {
   cta: {
     heading: "RoboCollective.ai is your strategic partner in AI-driven operations.",
     body: "Share your most strategic ambition, and we'll co-create a roadmap that combines automation, intelligence, and creative rigor.",
-    primaryLabel: "Go to Shop",
-    primaryUrl: "robocollective.ai/shop",
+    primaryLabel: "Plan a discovery call",
+    primaryUrl: "contact.html",
     secondaryLabel: "Contact Us",
     secondaryUrl: "Form",
   },
