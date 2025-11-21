@@ -303,6 +303,30 @@ fetchLandingData();
 
 const themeToggleButtons = document.querySelectorAll("[data-theme-toggle]");
 const THEME_STORAGE_KEY = "robocollective-theme";
+const themeImageDirectories = {
+  dark: "assets/dark",
+  light: "assets/light",
+};
+const themeImageElements = document.querySelectorAll("[data-theme-img]");
+const themeHrefElements = document.querySelectorAll("[data-theme-href]");
+
+const syncThemeMedia = (theme) => {
+  const directory = themeImageDirectories[theme] || themeImageDirectories.dark;
+  themeImageElements.forEach((image) => {
+    const baseFile = image.dataset.themeImg;
+    if (!baseFile) {
+      return;
+    }
+    image.src = `${directory}/${baseFile}`;
+  });
+  themeHrefElements.forEach((link) => {
+    const baseFile = link.dataset.themeHref;
+    if (!baseFile) {
+      return;
+    }
+    link.href = `${directory}/${baseFile}`;
+  });
+};
 
 const readStoredTheme = () => {
   try {
@@ -326,6 +350,7 @@ const applyColorTheme = (theme) => {
   themeToggleButtons.forEach((button) => {
     button.setAttribute("aria-pressed", useLight);
   });
+  syncThemeMedia(theme);
   try {
     localStorage.setItem(THEME_STORAGE_KEY, theme);
   } catch {
