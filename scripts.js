@@ -52,7 +52,6 @@ const defaultLandingData = {
       description:
         "Resell your underused robots to trusted buyers, unlock capital and keep your fleet up to date.",
     },
-  ],
   cta: {
     heading: "RoboCollective.ai is your strategic partner in AI-driven operations.",
     body: "Share your most strategic ambition, and we'll co-create a roadmap that combines automation, intelligence, and creative rigor.",
@@ -61,7 +60,6 @@ const defaultLandingData = {
     secondaryLabel: "Contact Us",
     secondaryUrl: "Form",
   },
-};
 
 let heroPhrases = [];
 let heroPhraseIndex = 0;
@@ -375,7 +373,7 @@ const renderContactPopup = () => {
 renderContactPopup();
 
 const THEME_KEY = "robocollective-theme";
-const themeToggleButtons = document.querySelectorAll("[data-theme-toggle]");
+const themeToggleButton = document.querySelector("[data-theme-toggle]");
 const getPreferredTheme = () => {
   const stored = window.localStorage.getItem(THEME_KEY);
   if (stored === "light" || stored === "dark") {
@@ -390,22 +388,17 @@ const getPreferredTheme = () => {
 const applyTheme = (theme) => {
   const isLight = theme === "light";
   document.documentElement.classList.toggle("theme-light", isLight);
-  themeToggleButtons.forEach((button) => {
-    button.setAttribute("aria-pressed", String(isLight));
-    const icon = button.querySelector("span");
-    if (icon) {
-      icon.textContent = isLight ? "☀️" : "🌙";
-    }
-  });
+  if (themeToggleButton) {
+    themeToggleButton.setAttribute("aria-pressed", String(isLight));
+    themeToggleButton.querySelector("span").textContent = isLight ? "☀️" : "🌙";
+  }
   window.localStorage.setItem(THEME_KEY, theme);
 };
 
 let currentTheme = getPreferredTheme();
 applyTheme(currentTheme);
 
-themeToggleButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    currentTheme = currentTheme === "dark" ? "light" : "dark";
-    applyTheme(currentTheme);
-  });
+themeToggleButton?.addEventListener("click", () => {
+  currentTheme = currentTheme === "dark" ? "light" : "dark";
+  applyTheme(currentTheme);
 });
