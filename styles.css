@@ -123,6 +123,8 @@ body {
 .logo-copy {
   margin-left: 0.75rem;
   font-size: 1.15rem;
+  color: var(--secondary);
+  text-decoration: none;
 }
 
 .nav-links {
