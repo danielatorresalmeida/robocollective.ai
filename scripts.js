@@ -38,19 +38,19 @@ const defaultLandingData = {
   ],
   process: [
     {
-      title: "Immersion",
+      title: "Buy",
       description:
-        "We shadow your teams, catalog signals, and map outcomes before proposing workflows.",
+        "Buy cutting-edge robots, from industrial arms to service and educational platforms, with expert support from selection to deployment.",
     },
     {
-      title: "System design",
+      title: "Rent",
       description:
-        "Our architects build automation blueprints, integration fabrics, and measurement suites.",
+        "Rent the robots you need for pilots, events or seasonal peaks, and scale your automation without long-term commitments.",
     },
     {
-      title: "Launch + learn",
+      title: "Resell",
       description:
-        "We ship targeted experiences, monitor results, and evolve the systems with your team.",
+        "Resell your underused robots to trusted buyers, unlock capital and keep your fleet up to date.",
     },
   ],
   metrics: [
