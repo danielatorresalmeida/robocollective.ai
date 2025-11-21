@@ -1044,15 +1044,6 @@ html.contact-modal-open {
   position: relative;
 }
 
-.section-heading::after {
-  content: "";
-  position: absolute;
-  width: 60px;
-  height: 2px;
-  background: var(--accent);
-  bottom: -0.5rem;
-  left: 0;
-}
 
 .reveal {
   opacity: 0;
