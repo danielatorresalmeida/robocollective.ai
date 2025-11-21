@@ -316,3 +316,113 @@ const observer = new IntersectionObserver(
 document.querySelectorAll(".reveal").forEach((section) => {
   observer.observe(section);
 });
+
+const renderContactPopup = () => {
+  if (document.getElementById("contactModal")) {
+    return;
+  }
+
+  const markup = `
+    <div class="contact-fab" id="contactFab" aria-haspopup="dialog" aria-expanded="false">
+      <button type="button" aria-label="Open contact form">Contact us</button>
+    </div>
+    <div class="contact-modal" id="contactModal" hidden>
+      <div class="contact-modal__backdrop" data-contact-modal-close tabindex="-1"></div>
+      <div class="contact-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="contactModalTitle" tabindex="-1">
+        <button class="contact-modal__close" type="button" data-contact-modal-close aria-label="Close contact form">&times;</button>
+        <h3 id="contactModalTitle">Start the conversation</h3>
+        <form class="contact-form contact-form--popup">
+          <label>
+            <span>Name</span>
+            <input type="text" name="name" required>
+          </label>
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" required>
+          </label>
+          <label>
+            <span>Organization</span>
+            <input type="text" name="company">
+          </label>
+          <label class="full">
+            <span>Project details</span>
+            <textarea name="message" rows="4" required></textarea>
+          </label>
+          <button type="submit" class="btn primary">Send inquiry</button>
+        </form>
+      </div>
+    </div>
+  `;
+
+  document.body.insertAdjacentHTML("beforeend", markup);
+
+  const fab = document.getElementById("contactFab");
+  const modal = document.getElementById("contactModal");
+  const dialog = modal?.querySelector(".contact-modal__dialog");
+  const closeButtons = modal?.querySelectorAll("[data-contact-modal-close]") ?? [];
+
+  const toggleModal = (show) => {
+    if (!modal) {
+      return;
+    }
+    if (show) {
+      modal.removeAttribute("hidden");
+      modal.setAttribute("aria-hidden", "false");
+      fab?.setAttribute("aria-expanded", "true");
+      document.documentElement.classList.add("contact-modal-open");
+      dialog?.focus();
+    } else {
+      modal.setAttribute("hidden", "");
+      modal.setAttribute("aria-hidden", "true");
+      fab?.setAttribute("aria-expanded", "false");
+      document.documentElement.classList.remove("contact-modal-open");
+      fab?.querySelector("button")?.focus();
+    }
+  };
+
+  fab?.addEventListener("click", () => toggleModal(true));
+  closeButtons.forEach((node) => node.addEventListener("click", () => toggleModal(false)));
+  modal?.addEventListener("click", (event) => {
+    if (event.target === modal) {
+      toggleModal(false);
+    }
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && modal && !modal.hasAttribute("hidden")) {
+      toggleModal(false);
+    }
+  });
+};
+
+renderContactPopup();
+
+const THEME_KEY = "robocollective-theme";
+const themeToggleButton = document.querySelector("[data-theme-toggle]");
+const getPreferredTheme = () => {
+  const stored = window.localStorage.getItem(THEME_KEY);
+  if (stored === "light" || stored === "dark") {
+    return stored;
+  }
+  if (window.matchMedia("(prefers-color-scheme: light)").matches) {
+    return "light";
+  }
+  return "dark";
+};
+
+const applyTheme = (theme) => {
+  const isLight = theme === "light";
+  document.documentElement.classList.toggle("theme-light", isLight);
+  if (themeToggleButton) {
+    themeToggleButton.setAttribute("aria-pressed", String(isLight));
+    themeToggleButton.querySelector("span").textContent = isLight ? "☀️" : "🌙";
+  }
+  window.localStorage.setItem(THEME_KEY, theme);
+};
+
+let currentTheme = getPreferredTheme();
+applyTheme(currentTheme);
+
+themeToggleButton?.addEventListener("click", () => {
+  currentTheme = currentTheme === "dark" ? "light" : "dark";
+  applyTheme(currentTheme);
+});
