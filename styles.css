@@ -10,15 +10,23 @@
     var(--primary);
   --hero-background: linear-gradient(180deg, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95));
   --panel-background: rgba(255, 255, 255, 0.02);
+  --panel-border: 1px solid rgba(255, 255, 255, 0.08);
   --card-figure-background: rgba(255, 255, 255, 0.06);
   --card-figure-border: rgba(255, 255, 255, 0.08);
-  --panel-border: 1px solid rgba(255, 255, 255, 0.08);
   --text-muted: rgba(255, 255, 255, 0.7);
   --text-muted-strong: rgba(255, 255, 255, 0.8);
   --modal-background: rgba(15, 23, 42, 0.95);
   --contact-hero-background: radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.2), rgba(15, 23, 42, 0.95)) no-repeat, rgba(15, 23, 42, 0.7);
   --meet-caipo-background: radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.25), rgba(0, 0, 0, 0.35)) no-repeat, rgba(15, 23, 42, 0.7);
   --highlights-background: rgba(255, 255, 255, 0.04);
+  --hero-overlay: linear-gradient(120deg, rgba(15, 23, 42, 0.25), rgba(15, 23, 42, 0.9));
+  --dropdown-background: rgba(31, 41, 55, 0.95);
+  --dropdown-hover: rgba(255, 255, 255, 0.05);
+  --dropdown-border: rgba(255, 255, 255, 0.08);
+  --input-background: rgba(15, 23, 42, 0.8);
+  --input-border: rgba(255, 255, 255, 0.25);
+  --modal-backdrop: rgba(0, 0, 0, 0.65);
+  --modal-shadow: rgba(0, 0, 0, 0.8);
   color-scheme: dark;
 }
 
@@ -43,6 +51,14 @@
   --contact-hero-background: radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.1), rgba(248, 250, 252, 0.95));
   --meet-caipo-background: radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.15), rgba(255, 255, 255, 0.9));
   --highlights-background: rgba(255, 255, 255, 0.9);
+  --hero-overlay: linear-gradient(120deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.9));
+  --dropdown-background: rgba(255, 255, 255, 0.95);
+  --dropdown-hover: rgba(15, 23, 42, 0.1);
+  --dropdown-border: rgba(15, 23, 42, 0.12);
+  --input-background: #ffffff;
+  --input-border: rgba(15, 23, 42, 0.25);
+  --modal-backdrop: rgba(0, 0, 0, 0.15);
+  --modal-shadow: rgba(0, 0, 0, 0.15);
   color-scheme: light;
 }
 
@@ -149,8 +165,8 @@ body {
   position: absolute;
   top: 110%;
   right: 0;
-  background: rgba(31, 41, 55, 0.95);
-  border: 1px solid var(--border);
+  background: var(--dropdown-background);
+  border: 1px solid var(--dropdown-border);
   border-radius: 12px;
   padding: 0.5rem 0;
   box-shadow: 0 15px 45px rgba(15, 23, 42, 0.6);
@@ -171,7 +187,7 @@ body {
 }
 
 .shop-dropdown a:hover {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--dropdown-hover);
 }
 
 .shop-menu:hover .shop-dropdown,
@@ -281,7 +297,7 @@ body {
 .hero-video__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(120deg, rgba(15, 23, 42, 0.25), rgba(15, 23, 42, 0.9));
+  background: var(--hero-overlay);
   pointer-events: none;
 }
 
@@ -379,8 +395,8 @@ body {
 .contact-form input,
 .contact-form textarea {
   border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid var(--input-border);
+  background: var(--input-background);
   color: var(--secondary);
   padding: 0.75rem 1rem;
   font-family: inherit;
@@ -454,7 +470,7 @@ body {
 .contact-modal__backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.65);
+  background: var(--modal-backdrop);
 }
 
 .contact-modal__dialog {
@@ -463,7 +479,7 @@ body {
   border-radius: 20px;
   padding: 2rem;
   border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 25px 70px var(--modal-shadow);
   max-width: 420px;
   width: min(90vw, 420px);
   z-index: 1;
