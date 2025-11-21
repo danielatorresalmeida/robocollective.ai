@@ -168,6 +168,7 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.2rem;
+  z-index: 10;
 }
 
 .shop-dropdown {
@@ -184,6 +185,7 @@ body {
   transform: translateY(6px);
   transition: opacity 0.25s ease, transform 0.25s ease;
   min-width: 220px;
+  z-index: 20;
 }
 
 .shop-dropdown a {
