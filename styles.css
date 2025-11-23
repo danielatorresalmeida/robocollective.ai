@@ -976,6 +976,30 @@ html.contact-modal-open {
   align-items: center;
 }
 
+.shop-card-divider {
+  width: 60px;
+  height: 4px;
+  border-radius: 999px;
+  margin-bottom: 0.5rem;
+  background: rgba(15, 23, 42, 0.08);
+}
+
+.shop-card-divider--educational {
+  background: linear-gradient(135deg, #ec4899, #f59e0b);
+}
+
+.shop-card-divider--industrial {
+  background: linear-gradient(135deg, #06b6d4, #0f766e);
+}
+
+.shop-card-divider--services {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+}
+
+.shop-card-divider--specialty {
+  background: linear-gradient(135deg, #f97316, #e11d48);
+}
+
 .shop-card-body h3 {
   margin: 0;
   font-size: 1.35rem;
