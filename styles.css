@@ -269,14 +269,14 @@ body {
 
 .btn.primary {
   background: linear-gradient(135deg, #f59e0b, #ec4899);
-  color: var(--primary);
+  color: #0f172a;
   border-color: transparent;
   box-shadow: 0 10px 30px rgba(236, 72, 153, 0.3);
 }
 
 .btn.gradient-pill {
   background: linear-gradient(135deg, #f59e0b, #ec4899);
-  color: #1b1c1d;
+  color: #0f172a;
   box-shadow: 0 15px 30px rgba(236, 72, 153, 0.35);
   padding: 0.9rem 2.5rem;
   border-radius: 999px;
@@ -295,8 +295,8 @@ body {
 
 .btn.ghost {
   background: transparent;
-  border-color: var(--border);
-  color: var(--secondary);
+  border-color: rgba(255, 255, 255, 0.6);
+  color: #fff;
 }
 
 .btn:hover {
