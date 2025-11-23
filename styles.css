@@ -788,31 +788,35 @@ html.contact-modal-open {
   bottom: 2rem;
   display: flex;
   align-items: center;
-  gap: 1rem;
-  max-width: 360px;
-  padding: 1rem 1.25rem;
-  border-radius: 22px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background: rgba(15, 23, 42, 0.95);
-  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.45);
-  color: var(--secondary);
+  gap: 1.25rem;
+  min-width: 340px;
+  max-width: 460px;
+  width: min(92vw, 460px);
+  padding: 1.25rem 1.5rem;
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(135deg, rgba(6, 11, 27, 0.95), rgba(15, 23, 42, 0.95));
+  box-shadow: 0 25px 60px rgba(15, 23, 42, 0.65);
+  color: rgba(255, 255, 255, 0.92);
   font-size: 0.95rem;
   z-index: 250;
-  gap: 1rem;
+  flex-wrap: nowrap;
 }
 
 .cookie-consent__body {
   margin: 0;
-  line-height: 1.4;
+  line-height: 1.5;
   font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.85);
   flex: 1;
+  min-width: 200px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
 }
 
 .cookie-consent__link {
-  color: #a5b4fc;
-  text-decoration: none;
-  font-weight: 500;
+  color: #c5c9ff;
+  text-decoration: underline;
+  font-weight: 600;
 }
 
 .cookie-consent__link:hover,
@@ -822,14 +826,15 @@ html.contact-modal-open {
 
 .cookie-consent__accept {
   border: none;
-  border-radius: 18px;
-  padding: 0.65rem 1.4rem;
-  background: linear-gradient(135deg, #7c3aed, #a855f7);
-  color: #fff;
-  font-weight: 600;
-  box-shadow: 0 10px 30px rgba(124, 58, 237, 0.35);
+  border-radius: 999px;
+  padding: 0.75rem 1.65rem;
+  background: linear-gradient(135deg, #f97316, #ec4899, #8b5cf6);
+  color: #0f172a;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  box-shadow: 0 20px 40px rgba(236, 72, 153, 0.3);
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .cookie-consent__accept:hover,
@@ -843,6 +848,11 @@ html.contact-modal-open {
     right: 1.25rem;
     left: 1.25rem;
     bottom: 1.5rem;
+    max-width: none;
+    min-width: auto;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+    width: calc(100% - 2.5rem);
   }
 }
 
