@@ -637,7 +637,7 @@ html.contact-modal-open {
 .process-cards {
   margin-top: 2rem;
   display: grid;
-  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  grid-template-columns: repeat(4, minmax(220px, 1fr));
   gap: 1.25rem;
   justify-items: stretch;
 }
@@ -682,7 +682,7 @@ html.contact-modal-open {
 
 @media (max-width: 1024px) {
   .process-cards {
-    grid-template-columns: repeat(2, minmax(220px, 1fr));
+    grid-template-columns: repeat(4, minmax(220px, 1fr));
   }
 }
 
