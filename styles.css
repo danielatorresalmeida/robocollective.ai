@@ -276,7 +276,7 @@ body {
 
 .btn.gradient-pill {
   background: linear-gradient(135deg, #f59e0b, #ec4899);
-  color: #fff;
+  color: #1b1c1d;
   box-shadow: 0 15px 30px rgba(236, 72, 153, 0.35);
   padding: 0.9rem 2.5rem;
   border-radius: 999px;
