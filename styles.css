@@ -280,6 +280,12 @@ body {
   box-shadow: 0 15px 30px rgba(236, 72, 153, 0.35);
   padding: 0.9rem 2.5rem;
   border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+  width: 100%;
+  max-width: 220px;
   font-weight: 700;
   text-decoration: underline;
   text-underline-offset: 4px;
