@@ -635,8 +635,20 @@ html.contact-modal-open {
 .capabilities-grid {
   margin-top: 2rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.5rem;
+}
+
+@media (max-width: 1080px) {
+  .capabilities-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .capabilities-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .capability-card {
