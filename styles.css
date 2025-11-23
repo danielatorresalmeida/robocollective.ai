@@ -663,10 +663,18 @@ html.contact-modal-open {
   line-height: 1.6;
 }
 
-.process-step-number {
-  font-size: 1rem;
+.process-step-badge {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font-weight: 700;
-  color: rgba(15, 23, 42, 0.45);
+  font-size: 0.95rem;
+  color: rgba(15, 23, 42, 0.65);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(248, 249, 255, 0.9));
 }
 
 @media (max-width: 1024px) {
