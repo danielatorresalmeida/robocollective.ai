@@ -431,19 +431,23 @@ const persistCookieConsent = () => {
 const hideCookieConsent = () => {
   if (cookieConsentEl) {
     cookieConsentEl.hidden = true;
+    cookieConsentEl.setAttribute("aria-hidden", "true");
+    cookieConsentEl.style.display = "none";
   }
 };
 
-if (cookieConsentEl && cookieAcceptButton) {
-  const consentStatus = readCookieConsent();
-  if (consentStatus === "accepted") {
-    hideCookieConsent();
-  } else {
-    cookieConsentEl.hidden = false;
-  }
+  if (cookieConsentEl && cookieAcceptButton) {
+    const consentStatus = readCookieConsent();
+    if (consentStatus === "accepted") {
+      hideCookieConsent();
+    } else {
+      cookieConsentEl.hidden = false;
+      cookieConsentEl.setAttribute("aria-hidden", "false");
+      cookieConsentEl.style.display = "";
+    }
 
-  cookieAcceptButton.addEventListener("click", () => {
-    persistCookieConsent();
-    hideCookieConsent();
-  });
-}
+    cookieAcceptButton.addEventListener("click", () => {
+      persistCookieConsent();
+      hideCookieConsent();
+    });
+  }
