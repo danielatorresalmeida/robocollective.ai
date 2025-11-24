@@ -605,11 +605,21 @@ html.contact-modal-open {
   width: min(100%, 1100px);
 }
 
+.highlights,
+.meet-caipo,
+.process-section,
+.shop-showcase,
+.robotics-section,
+.blog-section {
+  padding: 2.5rem;
+  border-radius: 28px;
+  background: var(--panel-background);
+  border: 1px solid var(--panel-border);
+  box-shadow: 0 30px 60px rgba(15, 23, 42, 0.1);
+}
+
 .highlights {
   padding: 2rem 1rem;
-  border-radius: 28px;
-  background: var(--highlights-background);
-  border: 1px solid var(--panel-border);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
