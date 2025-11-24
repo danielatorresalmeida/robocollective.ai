@@ -81,6 +81,16 @@ body {
   color: var(--secondary);
   min-height: 100vh;
 }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
 
 .site-shell {
   max-width: 1200px;
@@ -157,9 +167,9 @@ body {
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  padding: 0.35rem 0.75rem;
-  border-radius: 999px;
+  justify-content: center;
+  padding: 0.35rem;
+  border-radius: 12px;
   border: 1px solid transparent;
   transition: border 0.2s ease, background 0.2s ease;
 }
@@ -168,6 +178,51 @@ body {
 .theme-toggle:focus-visible {
   border-color: var(--dropdown-border);
   background: var(--soft);
+}
+
+.theme-toggle-icon {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.theme-toggle-icon::before,
+.theme-toggle-icon::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  transition: background 0.2s ease, transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+}
+.theme-toggle-icon::before {
+  width: 24px;
+  height: 24px;
+  background: #e2e8f0;
+}
+.theme-toggle-icon::after {
+  width: 18px;
+  height: 18px;
+  background: var(--primary);
+  right: 4px;
+  top: 3px;
+  opacity: 1;
+}
+.theme-light .theme-toggle-icon::before {
+  background: #fcd34d;
+  box-shadow:
+    0 -10px 0 -6px rgba(252, 211, 77, 0.8),
+    0 10px 0 -6px rgba(252, 211, 77, 0.8),
+    -10px 0 0 -6px rgba(252, 211, 77, 0.8),
+    10px 0 0 -6px rgba(252, 211, 77, 0.8),
+    -6px -6px 0 -6px rgba(252, 211, 77, 0.7),
+    6px -6px 0 -6px rgba(252, 211, 77, 0.7),
+    -6px 6px 0 -6px rgba(252, 211, 77, 0.7),
+    6px 6px 0 -6px rgba(252, 211, 77, 0.7);
+}
+.theme-light .theme-toggle-icon::after {
+  opacity: 0;
+  transform: scale(0.6);
 }
 
 .nav-caret {
