@@ -189,13 +189,15 @@ body {
   justify-content: center;
   border-radius: 50%;
   overflow: hidden;
-  background: var(--surface);
+  background-color: var(--surface);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 22px;
+  background-image: url("assets/dark/icons8-night-94.png");
+  transition: background-image 0.2s ease, background-color 0.2s ease;
 }
-.theme-toggle-icon img {
-  width: 22px;
-  height: 22px;
-  object-fit: contain;
-  display: block;
+:root.theme-light .theme-toggle-icon {
+  background-image: url("assets/light/icons8-partly-cloudy-day-94.png");
 }
 
 .nav-caret {
