@@ -304,8 +304,8 @@ fetchLandingData();
 const themeToggleButtons = document.querySelectorAll("[data-theme-toggle]");
 const THEME_STORAGE_KEY = "robocollective-theme";
 const themeAssetDirectories = {
-  dark: "assets/dark",
-  light: "assets/light",
+  dark: "/assets/dark",
+  light: "/assets/light",
 };
 const themeAssetGroups = [
   {
