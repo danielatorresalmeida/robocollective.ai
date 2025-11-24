@@ -321,8 +321,6 @@ body {
   width: 100%;
   max-width: 220px;
   font-weight: 700;
-  text-decoration: underline;
-  text-underline-offset: 4px;
   outline: none;
   border: 1px solid transparent;
 }
