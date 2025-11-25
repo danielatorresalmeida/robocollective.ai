@@ -834,6 +834,21 @@ html.contact-modal-open {
   }
 }
 
+.blog-highlight {
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  margin: 1.5rem 0;
+}
+.blog-highlight img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
 .blog-posts {
   display: flex;
   flex-direction: column;
