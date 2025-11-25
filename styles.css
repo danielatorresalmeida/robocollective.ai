@@ -885,6 +885,10 @@ html.contact-modal-open {
   align-items: center;
 }
 
+.blog-post--fullwidth {
+  grid-template-columns: 1fr;
+}
+
 .blog-post__image img {
   width: 100%;
   height: auto;
