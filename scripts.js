@@ -290,10 +290,12 @@ const fetchLandingData = async () => {
     }
     const payload = await response.json();
     const attributes = payload?.data?.attributes;
-    if (attributes) {
-      const normalized = normalizeLandingAttributes(attributes);
-      applyLandingData(normalized);
+    if (!attributes) {
+      console.warn("Strapi landing payload missing attributes", payload);
+      return;
     }
+    const normalized = normalizeLandingAttributes(attributes);
+    applyLandingData(normalized);
   } catch (error) {
     console.warn("Unable to fetch landing page content from Strapi", error);
   }

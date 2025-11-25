@@ -88,3 +88,11 @@ Once the model is saved, open the `Landing` single type and supply values matchi
 1. The Flask app serves `index.html` from `http://localhost:5000`. The frontend script calls `http://localhost:1337/api/landing?populate=deep` by default. Modify the `STRAPI_URL` global before the script loads (for example, by adding `<script>window.STRAPI_URL = "https://your-strapi-host";</script>` to `index.html` before `scripts.js`) if the backend lives elsewhere.
 2. Ensure Strapi's CORS settings allow requests from your frontend origin (`http://localhost:5000` by default). The Strapi admin UI exposes CORS controls under **Settings → Global Settings → Security**.
 3. Run Strapi with `npm run develop` (or `npm run start` for production) inside the backend folder and keep it running while previewing the Flask-hosted frontend.
+
+## 5. Deployed workflow reminders
+
+When Strapi is merged into the robocollective.ai stack, follow these steps so the site and CMS stay in sync:
+
+1. Treat the deployed Strapi host (for example `https://strapi.robocollective.ai`) as the single source of truth. Set the global `window.STRAPI_URL` to that host before including `scripts.js` so the landing copy fetches from the production CMS instead of `localhost`.
+2. Rather than editing the static files with new URLs, expose the host through an environment variable on the Flask side (e.g., `ROBO_STRAPI_URL`) and inject it with a small inline script or server-rendered script tag. That lets you swap hosts between staging and production without touching the shipped assets.
+3. After approving content in Strapi, restart the Flask server (`python server.py` locally or your cloud process), confirm the UI renders the updated copy, then redeploy the Flask site so the merged deployment references the live Strapi host and the refreshed content.
