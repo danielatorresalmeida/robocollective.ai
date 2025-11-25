@@ -92,6 +92,14 @@ body {
   border: 0;
 }
 
+a {
+  text-decoration: none;
+}
+a:hover,
+a:focus-visible {
+  text-decoration: none;
+}
+
 .site-shell {
   max-width: 1200px;
   margin: 0 auto;
