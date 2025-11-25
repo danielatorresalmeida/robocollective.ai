@@ -919,8 +919,14 @@ html.contact-modal-open {
 .blog-post__footer {
   margin-top: 1rem;
   font-weight: 600;
-  color: var(--accent);
+  color: #ffffff;
   cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.theme-light .blog-post__footer {
+  color: var(--accent);
 }
 
 @media (max-width: 960px) {
